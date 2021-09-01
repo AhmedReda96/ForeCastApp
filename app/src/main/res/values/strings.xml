@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">ForeCastApp</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enterCityName">Enter city name</string>
+    <string name="search">Search</string>
+    <string name="welcomeMessage">Welcome to Forecast News</string>
+    <string name="go">Go</string>
+    <string name="warningMessage">warning it is not accurate date</string>
+
+
+    <string name="appid">b4c2f09608a1a4454d14f4c677c465a7</string>
+    <string name="weather">Weather</string>
+    <string name="clouds">Clouds</string>
+    <string name="wind">Wind</string>
+    <string name="rain">Rain</string>
+    <string name="retry">Retry</string>
+</resources>
