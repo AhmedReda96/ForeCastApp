@@ -19,4 +19,12 @@ class ConnectionDetector(private val _context: Context) {
             return false
         }
 
+
+   public fun checkInternetConnection(): Boolean {
+        var isInternetPresent: Boolean = false
+        val cd: ConnectionDetector = ConnectionDetector(_context)
+        isInternetPresent = cd.isConnectingToInternet
+        return isInternetPresent
+    }
+
 }

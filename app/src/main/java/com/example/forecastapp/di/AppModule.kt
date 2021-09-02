@@ -1,6 +1,10 @@
 package com.example.forecastapp.di
 
+import android.app.Application
+import android.content.Context
 import com.example.forecastapp.api.Service
+import com.example.forecastapp.db.MainDataBase
+import com.example.forecastapp.db.NewsDao
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module
@@ -17,11 +21,12 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object RetrofitModule {
+object AppModule {
+
     private const val BASE_URL = "http://api.openweathermap.org/data/2.5/"
     val getClient: Service
-    @Provides
-    @Singleton
+        @Provides
+        @Singleton
         get() {
             val gson = GsonBuilder()
                 .setLenient()
@@ -51,5 +56,15 @@ object RetrofitModule {
             return retrofit.create(Service::class.java)
 
         }
+
+    @Singleton
+    @Provides
+    fun provideDatabase(context: Application): MainDataBase? {
+        return  MainDataBase.getInstance(context)
+    }
+
+    @Provides
+    @Singleton
+    public fun provideDao(mainDataBase: MainDataBase) : NewsDao? {return mainDataBase.newsDao()}
 
 }
